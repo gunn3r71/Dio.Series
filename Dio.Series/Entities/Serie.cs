@@ -53,7 +53,8 @@ namespace Dio.Series.Entities
                  + $"Description: {Description}" + Environment.NewLine
                  + $"Rate: {Rate}" + Environment.NewLine
                  + $"Amount of seasons: {Seasons}" + Environment.NewLine
-                 + $"Year: {Release}";
+                 + $"Year: {Release}" +
+                   $"Deleted: {Deleted}";
         }
     }
 }

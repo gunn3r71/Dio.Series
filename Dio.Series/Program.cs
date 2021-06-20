@@ -24,6 +24,14 @@ namespace Dio.Series
                     case "2":
                         Add();
                         break;
+                    case "3":
+                        Update();
+                        break;
+                    case "4":
+                        Delete();
+                        break;
+                    case "5":
+                        Datails();
                     case "c":
                     case "C":
                         Console.Clear();
@@ -92,6 +100,53 @@ namespace Dio.Series
             var released = int.Parse(Console.ReadLine());
 
             SerieRepository.Add(new Serie(SerieRepository.NextId(), name, description, type, rate, seasons, released));
+        }
+
+        private static void Update()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Update series");
+            Console.Write("Id: ");
+            var id = int.Parse(Console.ReadLine());
+            Console.Write("Title: ");
+            var name = Console.ReadLine();
+            foreach (var genre in Enum.GetValues(typeof(EnumGenre)))
+            {
+                Console.WriteLine($"{(int)genre} - {Enum.GetName(typeof(EnumGenre), genre)} ");
+            }
+            Console.Write("Genre: ");
+            var type = (EnumGenre)Enum.Parse(typeof(EnumGenre), Console.ReadLine());
+            Console.Write("Description: ");
+            var description = Console.ReadLine();
+            Console.Write("Rate: ");
+            var rate = int.Parse(Console.ReadLine());
+            Console.Write("Seasons: ");
+            var seasons = int.Parse(Console.ReadLine());
+            Console.Write("Released at: ");
+            var released = int.Parse(Console.ReadLine());
+
+            SerieRepository.Add(new Serie(id, name, description, type, rate, seasons, released));
+        }
+
+        private static void Delete()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Delete series");
+            Console.Write("Id: ");
+            var id = int.Parse(Console.ReadLine());
+
+            SerieRepository.Delete(id);
+        }
+
+        private static void Details()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Details");
+            Console.Write("Id: ");
+            var id = int.Parse(Console.ReadLine());
+
+            var serie = SerieRepository.ReturnByID(id);
+            Console.WriteLine(serie);
         }
     }
 }
