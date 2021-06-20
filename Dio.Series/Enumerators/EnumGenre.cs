@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dio.Series.Entities.Enumerators
+namespace Dio.Series.Enumerators
 {
     public enum EnumGenre
     {

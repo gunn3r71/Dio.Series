@@ -1,17 +1,17 @@
-﻿using Dio.Series.Entities.Enumerators;
+﻿using Dio.Series.Enumerators;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Dio.Series.Entities
 {
-    public class Series : BaseEntity
+    public class Serie : BaseEntity
     {
-        public Series()
+        public Serie()
         {
         }
 
-        public Series(int id,string title, string description, EnumGenre genre, int rate, int seasons, int release)
+        public Serie(int id,string title, string description, EnumGenre genre, int rate, int seasons, int release)
         {
             Id = id;
             Title = title;
@@ -20,6 +20,7 @@ namespace Dio.Series.Entities
             Rate = rate;
             Seasons = seasons;
             Release = release;
+            Deleted = false;
         }
 
         private string Title { get; set; }
@@ -28,6 +29,7 @@ namespace Dio.Series.Entities
         private int Rate { get; set; }
         private int Seasons { get; set; }
         private int Release { get; set; }
+        private bool Deleted { get; set; }
 
         public string GetTitle()
         {
@@ -37,6 +39,11 @@ namespace Dio.Series.Entities
         public int GetId()
         {
             return Id;
+        }
+
+        public void Delete()
+        {
+            this.Deleted = true;
         }
 
         public override string ToString()
