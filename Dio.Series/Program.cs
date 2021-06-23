@@ -31,7 +31,8 @@ namespace Dio.Series
                         Delete();
                         break;
                     case "5":
-                        Datails();
+                        Details();
+                        break;
                     case "c":
                     case "C":
                         Console.Clear();
